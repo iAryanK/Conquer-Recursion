@@ -1,0 +1,24 @@
+// Remove consecutive duplicates-> https://www.codingninjas.com/studio/problems/remove-consecutive-duplicates_893195?utm_source=youtube&utm_medium=affiliate&utm_campaign=parikh_recursion_roadmap
+
+string solve(string &s, string &ans, int i)
+{
+    if (i >= s.length())
+        return ans;
+
+    if (s[i] != s[i - 1])
+        ans += s[i];
+
+    return solve(s, ans, i + 1);
+}
+
+string removeDuplicate(string &s)
+{
+    // Write your code here
+    string ans = "";
+
+    ans += s[0];
+    if (s.length() == 1)
+        return ans;
+
+    return solve(s, ans, 1);
+}
